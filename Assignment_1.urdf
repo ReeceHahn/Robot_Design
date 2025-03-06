@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot name="Assignment_1">
+
+  <material name="blue">
+    <color rgba="0.46 0.54 0.93 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="lime">
+    <color rgba="0.47 0.96 0.34 1"/>
+  </material>
+
+  <link name="arm_piece_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.4" radius="0.1"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.4" radius="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+   <link name="arm_piece_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.3" radius="0.1"/>
+      </geometry>
+      <origin xyz="0 0.4 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="arm_piece_3">
+    <visual>
+      <geometry>
+        <cylinder length="0.2" radius="0.1"/>
+      </geometry>
+      <origin xyz="0 0.7 0"/>
+      <material name="lime"/>
+    </visual>
+  </link>
+
+  <joint name="arm_piece_1_to_2" type="fixed">
+    <parent link="arm_piece_1"/>
+    <child link="arm_piece_2"/>
+    <origin xyz="0 0.4 0"/>
+  </joint>
+
+  <joint name="arm_piece_2_to_3" type="fixed">
+    <parent link="arm_piece_2"/>
+    <child link="arm_piece_3"/>
+    <origin xyz="0 0.7 0"/>
+  </joint>
