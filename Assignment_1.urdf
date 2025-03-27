@@ -24,7 +24,7 @@
     </visual>
     <collision>
       <geometry>
-        <box size="1 0.1 1"/>
+        <box size="0.1 0.1 1"/>
       </geometry>
     </collision>
   </link>
@@ -61,6 +61,22 @@
     </collision>
   </link>
 
+  <link name="end_effector">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="lime"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.15 0.15 0.15"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+
   <joint name="world_to_arm_piece_1" type="continuous">
     <parent link="world"/>
     <child link="arm_piece_1"/>
@@ -72,7 +88,7 @@
     <parent link="arm_piece_1"/>
     <child link="arm_piece_2"/>
     <origin rpy ="0 0 0" xyz="0 0 0.45"/>
-    <limit effort="0" lower="0" upper="0" velocity="1.0"/>
+    <limit effort="1000" lower="0" upper="6.283" velocity="0"/>
     <axis xyz="0 1 0"/>
   </joint>
 
@@ -80,8 +96,14 @@
     <parent link="arm_piece_2"/>
     <child link="arm_piece_3"/>
     <origin rpy ="0 0 0" xyz="0 0 0.7"/>
-    <limit effort="0" lower="0" upper="0" velocity="1.0"/>
+    <limit effort="1000" lower="0" upper="6.283" velocity="0"/>
     <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="arm_piece_3_to_end_effector" type="fixed">
+    <parent link="arm_piece_3"/>
+    <child link="end_effector"/>
+    <origin rpy ="0 0 0" xyz="0 0 0.65"/>
   </joint>
 
 </robot>
