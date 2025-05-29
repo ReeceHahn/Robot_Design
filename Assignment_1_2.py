@@ -12,7 +12,7 @@ def get_homogeneous_transform(position, rotation):
     return T
 
 if __name__ == '__main__':
-    physicsClient = p.connect(p.GUI)# or p.DIRECT for non-graphical version
+    physicsClient = p.connect(p.GUI) # or p.DIRECT for non-graphical version
     p.setAdditionalSearchPath(pybullet_data.getDataPath()) # optionally
     p.setGravity(0, 0, 0)
 
@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     # represents alpha, beta, gamma (joint 1 angle, joint 2 angle, joint 3 angle) in degrees
     target_angles = [0.0, 45.0, 45.0] 
-    
+
     # singularity whenever gamma = 0 because that means final arm link is fully stretched out
     singularity_angles = [274.0, 37.0, 0.0]
 

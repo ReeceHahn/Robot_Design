@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<robot name="Assignment_4">
+
+  <material name="blue">
+    <color rgba="0.46 0.54 0.93 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+
+  <material name="lime">
+    <color rgba="0.47 0.96 0.34 1"/>
+  </material>
+
+  <link name="world"/>
+
+  <link name="gimbal_stand">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="yaw_ring_bottom">
+    <visual>
+      <geometry>
+        <box size="1 0.1 0.1"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="yaw_ring_left">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.8"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.8"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="yaw_ring_right">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.8"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.8"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="yaw_ring_top">
+    <visual>
+      <geometry>
+        <box size="1 0.1 0.1"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="roll_ring_left">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+      <material name="lime"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="roll_ring_bottom">
+    <visual>
+      <geometry>
+        <box size="0.8 0.1 0.1"/>
+      </geometry>
+      <material name="lime"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.8 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="roll_ring_top">
+    <visual>
+      <geometry>
+        <box size="0.8 0.1 0.1"/>
+      </geometry>
+      <material name="lime"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.8 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="roll_ring_right">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+      <material name="lime"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="pitch_ring_bottom">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.1"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.6 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="pitch_ring_left">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.4"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.4"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="pitch_ring_right">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.4"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.4"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="pitch_ring_top">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.1"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.6 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="imu_stand">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.15"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.15"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="imu">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="world_to_gimbal_stand" type="fixed">
+    <parent link="world"/>
+    <child link="gimbal_stand"/>
+    <origin rpy ="0 0 0" xyz="0 0 0.25"/>
+  </joint>
+
+  <joint name="gimbal_stand_to_yaw_ring_bottom" type="continuous">
+    <parent link="gimbal_stand"/>
+    <child link="yaw_ring_bottom"/>
+    <origin rpy ="0 0 0" xyz="0 0 0.3"/>
+    <axis xyz = "0 0 1"/>
+  </joint>
+
+  <joint name="yaw_ring_bottom_to_yaw_ring_left" type="fixed">
+    <parent link="yaw_ring_bottom"/>
+    <child link="yaw_ring_left"/>
+    <origin rpy ="0 0 0" xyz="-0.45 0 0.45"/>
+  </joint>
+
+  <joint name="yaw_ring_bottom_to_yaw_ring_right" type="fixed">
+    <parent link="yaw_ring_bottom"/>
+    <child link="yaw_ring_right"/>
+    <origin rpy ="0 0 0" xyz="0.45 0 0.45"/>
+  </joint>
+
+  <joint name="yaw_ring_right_to_yaw_ring_top" type="fixed">
+    <parent link="yaw_ring_right"/>
+    <child link="yaw_ring_top"/>
+    <origin rpy ="0 0 0" xyz="-0.45 0 0.45"/>
+  </joint>
+
+  <joint name="yaw_ring_left_to_roll_ring_left" type="continuous">
+    <parent link="yaw_ring_left"/>
+    <child link="roll_ring_left"/>
+    <origin rpy ="0 0 0" xyz="0.1 0 0"/>
+    <axis xyz = "1 0 0"/>
+  </joint>
+
+  <joint name="roll_ring_left_to_roll_ring_bottom" type="fixed">
+    <parent link="roll_ring_left"/>
+    <child link="roll_ring_bottom"/>
+    <origin rpy ="0 0 0" xyz="0.35 0 -0.35"/>
+  </joint>
+
+  <joint name="roll_ring_left_to_roll_ring_top" type="fixed">
+    <parent link="roll_ring_left"/>
+    <child link="roll_ring_top"/>
+    <origin rpy ="0 0 0" xyz="0.35 0 0.35"/>
+  </joint>
+
+  <joint name="roll_ring_bottom_to_roll_ring_right" type="fixed">
+    <parent link="roll_ring_bottom"/>
+    <child link="roll_ring_right"/>
+    <origin rpy ="0 0 0" xyz="0.35 0 0.35"/>
+  </joint>
+
+  <joint name="roll_ring_bottom_to_pitch_ring_bottom" type="continuous">
+    <parent link="roll_ring_bottom"/>
+    <child link="pitch_ring_bottom"/>
+    <origin rpy ="0 0 0" xyz="0 0 0.1"/>
+    <axis xyz = "0 0 1"/>
+  </joint>
+
+  <joint name="pitch_ring_bottom_to_pitch_ring_left" type="fixed">
+    <parent link="pitch_ring_bottom"/>
+    <child link="pitch_ring_left"/>
+    <origin rpy ="0 0 0" xyz="-0.25 0 0.25"/>
+  </joint>
+
+  <joint name="pitch_ring_bottom_to_pitch_ring_right" type="fixed">
+    <parent link="pitch_ring_bottom"/>
+    <child link="pitch_ring_right"/>
+    <origin rpy ="0 0 0" xyz="0.25 0 0.25"/>
+  </joint>
+
+  <joint name="pitch_ring_right_to_pitch_ring_top" type="fixed">
+    <parent link="pitch_ring_right"/>
+    <child link="pitch_ring_top"/>
+    <origin rpy ="0 0 0" xyz="-0.25 0 0.25"/>
+  </joint>
+
+  <joint name="pitch_ring_bottom_to_imu_stand" type="fixed">
+    <parent link="pitch_ring_bottom"/>
+    <child link="imu_stand"/>
+    <origin rpy ="0 0 0" xyz="0 0 0.125"/>
+  </joint>
+
+  <joint name="imu_stand_to_imu" type="fixed">
+    <parent link="imu_stand"/>
+    <child link="imu"/>
+    <origin rpy ="0 0 0" xyz="0 0 0.125"/>
+  </joint>
+
+</robot>
